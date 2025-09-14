@@ -7,47 +7,45 @@ class LoginPage:
     EMAIL_FIELD = (By.XPATH, "//input[@name='email']")
     PASSWORD_FIELD = (By.XPATH, "//input[@name='password']")
     SUBMIT_LOGIN_BUTTON = (By.XPATH, "//button[@type='submit'][text()='Войти']")
-    LOGIN_FORM = (By.XPATH, '//*[@id="root"]/div/div[2]/div[5]/form/div[2]')
+    LOGIN_FORM = (By.CSS_SELECTOR, "form.popUp_shell__LuyqR")
 
 
 class RegistrationPage:
     """Локаторы для формы регистрации"""
-    REGISTRATION_FORM = (By.XPATH, '//*[@id="root"]/div/div[1]/div/button[2]')
+    REGISTRATION_FORM = (By.CLASS_NAME, "popUp_shell__LuyqR")
     EMAIL_FIELD = (By.NAME, "email")
     PASSWORD_FIELD = (By.NAME, "password")
     CONFIRM_PASSWORD_FIELD = (By.NAME, "submitPassword")
     CREATE_ACCOUNT_BUTTON = (By.XPATH, "//button[text()='Создать аккаунт']")
-    ERROR_TEXT = (By.XPATH, '//*[@id="root"]/div/div[2]/div[5]/form/div[2]/div[1]/span')
-    BORDER_RED = (By.XPATH, '//*[@id="root"]/div/div[2]/div[5]/form/div[2]/div[2]/div/div')
+    ERROR_TEXT = (By.XPATH, "//*[contains(text(),'Ошибка')]")
+    BORDER_RED = (By.CSS_SELECTOR, ".input_inputError__fLUP9")
 
 class HomePage:
     """Локаторы для главной страницы"""
-    HOME_PAGE_INDICATOR = (By.XPATH, '//*[@id="root"]/div/div[1]/div/div[1]/div/h3')
-    POST_AD_BUTTON = (By.XPATH, '//*[@id="root"]/div/div[1]/div/button[2]')
+    HOME_PAGE_INDICATOR = (By.CSS_SELECTOR, "h3.profileText.name")
     USER_AVATAR = (By.CLASS_NAME, 'svgSmall')
-    USER_NAME = (By.XPATH, '//*[@id="root"]/div/div[1]/div/div[1]/div/h3')
-    LOGOUT_BUTTON = (By.XPATH, '//*[@id="root"]/div/div[1]/div/div[1]/div/button')
-    AD_CREATION_BUTTON = (By.XPATH, '//*[@id="root"]/div/div[1]/div/button')
-    MODAL_TITLE = (By.XPATH, '//*[@id="root"]/div/div[2]/div[5]/form')
+    USER_NAME = (By.XPATH, "//h3[contains(@class, 'profileText')][text()='User.']")
+    LOGOUT_BUTTON = (By.CSS_SELECTOR, "button.spanGlobal.btnSmall")
+    AD_CREATION_BUTTON = (By.CSS_SELECTOR, "button.buttonPrimary.inButtonText")
+    MODAL_TITLE = (By.XPATH, "//form[@class='popUp_shell__LuyqR']//h1[@class='h1']")
 
 class MakeNewAd:
 
-    NAME_FIELD = (By.XPATH, '//*[@id="root"]/div/div[2]/div/form/div[2]/div[1]/div/div/input')
-    DESCRIPTION = (By.XPATH, '//*[@id="root"]/div/div[2]/div/form/div[4]/div/textarea')
-    PRICE = (By.XPATH, '//*[@id="root"]/div/div[2]/div/form/div[5]/div/div/input')
-    OPEN_TYPE_LIST = (By.XPATH, '//*[@id="root"]/div/div[2]/div/form/div[2]/div[2]/div[1]/button')
-    TECHNOLOGY_TYPE = (By.XPATH, '//*[@id="root"]/div/div[2]/div/form/div[2]/div[2]/div[2]/button[5]/span')
-    INACTIVE_RADIO_BUTTON = (By.XPATH, "//input[@name='condition' and @value='Б/У']/../div[@class='radioUnput_inputRegular__FbVbr']")
-    PUBLICATE_BUTTON = (By.XPATH, '//*[@id="root"]/div/div[2]/div/form/button')
-    OPEN_CITY_LIST = (By.XPATH, "//input[contains(@name,'city')]/../button")
-    EKATERINBURG_CITY = (By.XPATH, '//*[@id="root"]/div/div[2]/div/form/div[3]/div[2]/button[4]/span')
+    NAME_FIELD = (By.XPATH, "//input[@placeholder='Название' and @name='name']")
+    DESCRIPTION = (By.XPATH, "//textarea[@placeholder='Описание товара']")
+    PRICE = (By.XPATH, "//input[@placeholder='Стоимость' and @name='price']")
+    OPEN_TYPE_LIST = (By.CSS_SELECTOR, ".dropDownMenu_arrowUp__I25Xq.dropDownMenu_noDefault__wSKsP")
+    TECHNOLOGY_TYPE = (By.CSS_SELECTOR, ".dropDownMenu_btn__o8ARs.dropDownMenu_noDefault__wSKsP")
+    PUBLICATE_BUTTON = (By.XPATH, "//button[@type='submit'][text()='Опубликовать']")
+    CHOOSE_CITY = (By.XPATH, "//input[contains(@name,'city')]/../button",)
+    EKATERINBURG_CITY = (By.CSS_SELECTOR, ".dropDownMenu_btn__o8ARs.dropDownMenu_noDefault__wSKsP")
 
 class SearchForAd:
 
-    NAME_SEARCH_FIELD = (By.XPATH, '//*[@id="root"]/div/div[2]/form/div[1]/div/div/input')
-    SEARCH_BUTTON = (By.XPATH, '//*[@id="root"]/div/div[2]/form/div[2]/button')
-    SEARCH_TYPE_LIST = (By.XPATH, '//*[@id="root"]/div/div[2]/form/div[2]/div[1]/div[1]/input')
-    SEARCH_TECHNOLOGY_TYPE = (By.XPATH, '//*[@id="root"]/div/div[2]/form/div[2]/div[1]/div[2]/button[5]')
-    AD_NAME = (By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div/div/div[1]/h2')
-    AD_CITY = (By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div/div/div[1]/h3')
-    AD_PRICE = (By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div/div/div[2]/h2')
+    NAME_SEARCH_FIELD = (By.CSS_SELECTOR, "input[type='text'][placeholder='Я хочу купить...']")
+    SEARCH_BUTTON = (By.XPATH, "//button[@type='submit'][text()='Применить']")
+    SEARCH_TECHNOLOGY_TYPE = (By.CSS_SELECTOR, ".dropDownMenu_btn__o8ARs.dropDownMenu_noDefault__wSKsP")
+    AD_NAME = (By.XPATH, "//h2[@class='h2'][contains(text(), 'Тестовое название')]")
+    AD_PRICE = (By.XPATH, "//h2[@class='h2'][contains(text(), '₽')]")
+    AD_CITY = (By.XPATH, "//h3[@class='h3'][contains(text(), 'Москва')]")
+    
